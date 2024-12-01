@@ -14,6 +14,8 @@ func main() {
 	}
 
 	distanceBetweenLists := part1(lines)
+	similarityScore := part2(lines)
 
-	fmt.Println(distanceBetweenLists)
+	fmt.Printf("Distance between lists = %d\n", distanceBetweenLists)
+	fmt.Printf("Similarity score = %d\n", similarityScore)
 }

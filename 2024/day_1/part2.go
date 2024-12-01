@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"math"
-	"slices"
 )
 
-func part1(lines []string) int {
+func part2(lines []string) int {
 	var leftNums, rightNums []int
 	var leftNum, rightNum int
+
+	// Map containing counts
+	counts := make(map[int]int)
 
 	// Populate left and right arrays with numbers
 	for _, line := range lines {
@@ -17,19 +18,13 @@ func part1(lines []string) int {
 		leftNums = append(leftNums, leftNum)
 		rightNums = append(rightNums, rightNum)
 
+		counts[rightNum]++
 	}
 
-	// Sort both arrays
-	slices.Sort(leftNums)
-	slices.Sort(rightNums)
-
-	distanceBetweenLists := 0
-
-	for i, value := range leftNums {
-		difference := value - rightNums[i]
-		distanceBetweenLists += int(math.Abs(float64(difference)))
-
+	similarityScore := 0
+	for _, num := range leftNums {
+		similarityScore += num * counts[num]
 	}
 
-	return distanceBetweenLists
+	return similarityScore
 }
