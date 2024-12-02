@@ -14,5 +14,8 @@ func main() {
 	}
 
 	numOfSafeReports := part1(lines)
+	numOfSafeReportsWithOneBadLevel := part2(lines)
+
 	fmt.Printf("The number of safe reports is : %d\n", numOfSafeReports)
+	fmt.Printf("The number of safe reports is (with bad levels) : %d\n", numOfSafeReportsWithOneBadLevel)
 }

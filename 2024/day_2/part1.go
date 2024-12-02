@@ -2,21 +2,7 @@ package main
 
 import (
 	"regexp"
-	"strconv"
 )
-
-const (
-	MIN = 1
-	MAX = 3
-)
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-
-	return x
-}
 
 func isSequenceIncreasing(seq []int) bool {
 	isIncreasing := true
@@ -71,18 +57,6 @@ func isSequenceSafe(seq []int) bool {
 	}
 
 	return isSafe
-}
-
-func toIntArray(arr []string) []int {
-	var res []int
-
-	for _, val := range arr {
-		num, _ := strconv.Atoi(val)
-		res = append(res, num)
-
-	}
-
-	return res
 }
 
 func part1(lines []string) int {
