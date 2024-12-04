@@ -11,5 +11,6 @@ func main() {
 		panic(message)
 	}
 
-	print(part1(lines))
+	part1(lines)
+	print(part2(file))
 }

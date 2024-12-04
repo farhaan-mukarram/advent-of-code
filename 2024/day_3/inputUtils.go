@@ -18,3 +18,17 @@ func ParseInput(filename string) ([]string, error) {
 
 	return lines, nil
 }
+
+func ParseInputNoSplit(filename string) (string, error) {
+	contents, err := os.ReadFile(filename)
+
+	var lines string
+
+	if err != nil {
+		return lines, err
+	}
+
+	lines = strings.TrimSpace(string(contents))
+
+	return lines, nil
+}
