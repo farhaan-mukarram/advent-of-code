@@ -5,30 +5,16 @@ import (
 	"strings"
 )
 
-func ParseInput(filename string) ([]string, error) {
+func ParseInput(filename string) (string, error) {
 	contents, err := os.ReadFile(filename)
 
-	var lines []string
+	var data string
 
 	if err != nil {
-		return lines, err
+		return data, err
 	}
 
-	lines = strings.Split(strings.TrimSpace(string(contents)), "\n")
+	data = strings.TrimSpace(string(contents))
 
-	return lines, nil
-}
-
-func ParseInputNoSplit(filename string) (string, error) {
-	contents, err := os.ReadFile(filename)
-
-	var lines string
-
-	if err != nil {
-		return lines, err
-	}
-
-	lines = strings.TrimSpace(string(contents))
-
-	return lines, nil
+	return data, nil
 }

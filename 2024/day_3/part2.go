@@ -2,25 +2,10 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"regexp"
 	"strings"
 	"unicode"
 )
-
-func parseInput(filename string) (string, error) {
-	contents, err := os.ReadFile(filename)
-
-	var lines string
-
-	if err != nil {
-		return lines, err
-	}
-
-	lines = strings.TrimSpace(string(contents))
-
-	return lines, nil
-}
 
 func isValidChar(r rune) bool {
 	if unicode.IsDigit(r) {
@@ -75,10 +60,8 @@ func isValidChar(r rune) bool {
 	return false
 }
 
-func part2(filename string) int {
+func part2(input string) int {
 	sum_of_prods := 0
-
-	input, _ := parseInput(filename)
 
 	isMulDisabled := false
 	buffer := ""
@@ -89,17 +72,18 @@ func part2(filename string) int {
 		} else {
 			buffer += string(char)
 
-			isMulInstruction, _ := regexp.MatchString(`(mul\(\d+,\d+\))`, buffer)
+			isMulInstruction, _ := regexp.MatchString(MUL_INSTRUCTION_REGEX_PATTERN, buffer)
 			isDoInstruction, _ := regexp.MatchString(`do\(\)`, buffer)
 			isDontInstruction, _ := regexp.MatchString(`don't\(\)`, buffer)
 
 			if isMulInstruction && !isMulDisabled {
 				var num_1, num_2 int
 
-				re := regexp.MustCompile(`(mul\(\d+,\d+\))`)
+				re := regexp.MustCompile(MUL_INSTRUCTION_REGEX_PATTERN)
 				res := re.FindAllStringSubmatch(buffer, -1)
+
 				matchedPart := res[0][1]
-				fmt.Sscanf(matchedPart, "mul(%d,%d)", &num_1, &num_2)
+				fmt.Sscanf(matchedPart, MUL_INSTRUCTION_SCAN_PATTERN, &num_1, &num_2)
 
 				sum_of_prods += num_1 * num_2
 				buffer = ""
