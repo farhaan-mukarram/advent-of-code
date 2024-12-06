@@ -1,9 +1,5 @@
 package main
 
-const (
-	SEQUENCE = "XMAS"
-)
-
 func searchGridForWord(rowStart int, colStart int, grid []string) int {
 	seqCount := 0
 	seqLength := len(SEQUENCE)

@@ -14,4 +14,5 @@ func main() {
 	}
 
 	fmt.Printf("XMAS count is %d\n", part1(lines))
+	fmt.Printf("XMAS cross count is %d\n", part2(lines))
 }
