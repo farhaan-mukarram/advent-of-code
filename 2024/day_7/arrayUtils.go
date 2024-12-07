@@ -19,3 +19,7 @@ func toInt(s string) int {
 
 	return num
 }
+
+func toString(n int) string {
+	return strconv.Itoa(n)
+}
