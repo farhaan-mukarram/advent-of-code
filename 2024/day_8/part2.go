@@ -4,7 +4,7 @@ import (
 	"unicode"
 )
 
-func part1(lines []string) int {
+func part2(lines []string) int {
 	var antinodeLocations []Coordinate
 
 	antennaMap := make(map[string][]Coordinate)
@@ -44,15 +44,23 @@ func part1(lines []string) int {
 
 			var antinodeLocationOne, antinodeLocationTwo Coordinate
 
-			antinodeLocationOne = Coordinate{row: coordOne.row + rise, col: coordOne.col + run}
-			antinodeLocationTwo = Coordinate{row: coordTwo.row - rise, col: coordTwo.col - run}
+			antinodeLocationOne = Coordinate{row: coordOne.row, col: coordOne.col}
+			antinodeLocationTwo = Coordinate{row: coordTwo.row, col: coordTwo.col}
 
-			if liesWithinGrid(antinodeLocationOne, lines) && !doesListContainCoordinate(antinodeLocationOne, antinodeLocations) {
-				antinodeLocations = append(antinodeLocations, antinodeLocationOne)
+			for liesWithinGrid(antinodeLocationOne, lines) {
+				if !(doesListContainCoordinate(antinodeLocationOne, antinodeLocations)) {
+					antinodeLocations = append(antinodeLocations, antinodeLocationOne)
+				}
+
+				antinodeLocationOne = Coordinate{row: antinodeLocationOne.row + rise, col: antinodeLocationOne.col + run}
 			}
 
-			if liesWithinGrid(antinodeLocationTwo, lines) && !doesListContainCoordinate(antinodeLocationTwo, antinodeLocations) {
-				antinodeLocations = append(antinodeLocations, antinodeLocationTwo)
+			for liesWithinGrid(antinodeLocationTwo, lines) {
+				if !(doesListContainCoordinate(antinodeLocationTwo, antinodeLocations)) {
+					antinodeLocations = append(antinodeLocations, antinodeLocationTwo)
+				}
+
+				antinodeLocationTwo = Coordinate{row: antinodeLocationTwo.row - rise, col: antinodeLocationTwo.col - run}
 			}
 
 		}

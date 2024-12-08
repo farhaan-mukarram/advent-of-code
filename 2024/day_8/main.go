@@ -30,5 +30,8 @@ func main() {
 	}
 
 	uniqueAntinodeLocationsPartOne := part1(lines)
+	uniqueAntinodeLocationsPartTwo := part2(lines)
+
 	fmt.Printf("Unique antinode locations (part 1) = %d\n", uniqueAntinodeLocationsPartOne)
+	fmt.Printf("Unique antinode locations (part 2) = %d\n", uniqueAntinodeLocationsPartTwo)
 }
