@@ -41,3 +41,26 @@ func getFileChecksum(block []string) int {
 
 	return checksum
 }
+
+func convertDiskMapToBlockArray(diskMap string) []string {
+	idCount := 0
+	var blockArray []string
+
+	for i, char := range diskMap {
+		ch := string(char)
+		num := toInt(ch)
+
+		if isEven(i) {
+			for i := 0; i < num; i++ {
+				blockArray = append(blockArray, strconv.Itoa(idCount))
+			}
+			idCount++
+		} else {
+			for i := 0; i < num; i++ {
+				blockArray = append(blockArray, ".")
+			}
+		}
+	}
+
+	return blockArray
+}

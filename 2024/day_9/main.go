@@ -14,5 +14,8 @@ func main() {
 	input := lines[0]
 
 	fileCheckSumPartOne := part1(input)
+	fileCheckSumPartTwo := part2(input)
+
 	fmt.Printf("File checksum (part 1) = %d", fileCheckSumPartOne)
+	fmt.Printf("File checksum (part 2) = %d", fileCheckSumPartTwo)
 }

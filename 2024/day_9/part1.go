@@ -1,29 +1,11 @@
 package main
 
 import (
-	"strconv"
 	"strings"
 )
 
 func part1(diskMap string) int {
-	idCount := 0
-	var blockArray []string
-
-	for i, char := range diskMap {
-		ch := string(char)
-		num := toInt(ch)
-
-		if isEven(i) {
-			for i := 0; i < num; i++ {
-				blockArray = append(blockArray, strconv.Itoa(idCount))
-			}
-			idCount++
-		} else {
-			for i := 0; i < num; i++ {
-				blockArray = append(blockArray, ".")
-			}
-		}
-	}
+	blockArray := convertDiskMapToBlockArray(diskMap)
 
 	for !isFreeSpaceContiguous(strings.Join(blockArray, "")) {
 		freeSpaceIndex := 0
