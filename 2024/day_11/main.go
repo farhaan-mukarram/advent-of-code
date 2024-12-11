@@ -11,5 +11,6 @@ func main() {
 		panic(message)
 	}
 
-	part1(lines[0])
+	fmt.Printf("Stone count after 25 blinks is %d\n", part1(lines[0]))
+	fmt.Printf("Stone count after 75 blinks is %d\n", part2(lines[0]))
 }
