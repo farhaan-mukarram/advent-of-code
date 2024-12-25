@@ -1,0 +1,8 @@
+package main
+
+const (
+	A_BUTTON_PRESS_COST = 3
+	B_BUTTON_PRESS_COST = 1
+)
+
+const OFFSET = 10000000000000

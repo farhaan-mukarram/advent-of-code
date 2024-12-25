@@ -12,4 +12,5 @@ func main() {
 	}
 
 	fmt.Printf("Fewest tokens to win all possible prizes (part 1) = %d", part1(lines))
+	fmt.Printf("Fewest tokens to win all possible prizes (part 2) = %d", part2(lines))
 }

@@ -5,11 +5,6 @@ import (
 	"strings"
 )
 
-const (
-	A_BUTTON_PRESS_COST = 3
-	B_BUTTON_PRESS_COST = 1
-)
-
 func part1(lines []string) int {
 	var A0, A1, B0, B1, X0, X1, numOfTokens int
 
